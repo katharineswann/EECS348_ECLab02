@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC Lab2 Website</title>
+    <style> 
+        .container { 
+            max-width: 50%;
+            margin: 5% auto;
+            padding: 5%;
+            border: 1px solid;
+            border-radius: 1%;
+            text-align: center;
+        }
+
+        input, select, button {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Calculator</h1>
+        <form id="calculator-form">
+            <input type="text" id="num1" name="num1" placeholder="Enter number 1" required>
+            <input type="text" id="num2" name="num2" placeholder="Enter number 2" required>
+            <select id="operator" name="operator">
+                <option value="add">+</option> <!--four main operations-->
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select>
+            <button type="button" onclick="calculate()">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operator = document.getElementById('operator').value;
+            var result;
+
+            switch(operator) { //use switch to run through operators
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Invalid operator";
+            }
+
+            document.getElementById('result').innerText = "Result: " + result; //display result
+        }
+    </script>
+
+</body>
+</html>
